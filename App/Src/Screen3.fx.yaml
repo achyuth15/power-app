@@ -1,0 +1,66 @@
+Screen3 As screen:
+
+    Image2 As image:
+        Height: =584
+        Image: |-
+            ="https://quickchart.io/chart?c="&EncodeUrl("{
+             'type': 'horizontalBar',
+             'data': {
+                 'labels': ["&Concat(
+                     'STAR Case Tracking'.'Repair Status',
+                     "'"&Salesperson&"',"
+                 )&"],
+                 'datasets': [
+                     {
+                         'label': 'Dataset 2',
+                         'backgroundColor': 'rgba(54, 162, 235, 0.5)',
+                         'borderColor': 'rgb(54, 162, 235)',
+                         'borderWidth': 1,
+                         'data': ["&Concat(
+                     Filter('Monthly Sales', Period=drp_Month.Selected.Result),
+                     "'"&SalesAmount&"',"
+                 )&"]
+                     }
+                 ]},
+                 'options': {
+                     'elements': {
+                     'rectangle': {
+                         'borderWidth': 2
+                     }
+                     },
+                     'responsive': true,
+                     'legend': {
+                     'display': false
+                     },
+                     'title': {
+                     'display': true,
+                     'text': 'Sales Amount by Salesperson'
+                     }
+                 }
+             }"
+             )
+        Width: =130
+        X: =1236
+        ZIndex: =1
+
+    HtmlText1 As htmlViewer:
+        Height: =268
+        HtmlText: |-
+            ="<p>[requestor] has submitted a lessons learned request that requires manager approval by [manager] </p>&emsp;1. Please open the <a href=https://apps.powerapps.com/play/92e61f3b-34d4-42bc-9e80-267f6d9fd014?tenantId=d852d5cd-724c-4128-8812-ffa5db3f8507&ID=[id]>link</a> and review the details of the Lessons Learned <br>&emsp;2. At the bottom of the Lesson Learned form, select APPROVE or Reject <br>&emsp;3. Click Save to Submit Status <p> NOTE: if you are not the manager of the submitter who submitted the Lessons Learned, Please REJECT the Lesson Learned with comment Stating Incorrect Supervisor/Manager</p>"
+        Width: =822
+        ZIndex: =2
+
+    HtmlText2 As htmlViewer:
+        Height: =481
+        HtmlText: |-
+            ="Approved Level 1 or 2:[manager] has APPROVED the Lesson Learned <a href=https://apps.powerapps.com/play/92e61f3b-34d4-42bc-9e80-267f6d9fd014?tenantId=d852d5cd-724c-4128-8812-ffa5db3f8507&ID=[id]>link</a> submitted by [requestor].<br> FURTHER ACTION IS REQUIRED! The approved Lesson Learned is classified as a Level 1 or 2, which requires creation of a new standad or update to an existing standard. Follow the appropriate step below for next steps: <br><br> A. Request to Create New Standard - The submitter is responsible to contact their regional ST& SU Team to review the requested new standard for agreement & coordinate creation of the new standard <br> B. Request to Modify an Existing Standard - The Submitter is responsible to coordinate a meeting with the Standard Champion to review proposed changes for agreement prior to making updates. <br><br>
+            NOTE:If rquest to create/modify standard is rejected by ST&SU team or Standard Champion, the submitter is responsible to cancel the Lesson Learned or Modify to Lvl 3 (Modify to Lvl 3 applies when the standard update/creation is no longer required, but Lesson Learned improvement remains)
+            
+            
+            
+            
+            <p>Lessons Learned Requested is approved by [manager] and standard update is required.</p><p>please use the <a href=https://apps.powerapps.com/play/92e61f3b-34d4-42bc-9e80-267f6d9fd014?tenantId=d852d5cd-724c-4128-8812-ffa5db3f8507&ID=[id]>link</a> to see more details.</p>"
+        Width: =1366
+        Y: =287
+        ZIndex: =3
+

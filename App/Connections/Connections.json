@@ -1,0 +1,30 @@
+{
+  "a1df4a81-1b7c-4971-8988-1775622447fc": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1607/1.0.1607.3068/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://shiftup.sharepoint.com/sites/WLPHEVGoForShipFastFeedback": {
+        "dataSources": {
+          "STAR Case Tracking": {
+            "tableName": "21a00d4b-b2cf-4caf-93cc-ee2837074195"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "STAR Case Tracking"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "a1df4a81-1b7c-4971-8988-1775622447fc"
+  }
+}

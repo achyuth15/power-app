@@ -1,0 +1,52 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Clear(issuestatus);
+        ForAll(
+            Choices([@'STAR Case Tracking'].IssueStatus),
+            Collect(
+                issuestatus,
+                {Result: Value}
+            )
+        );
+        Clear(Data);
+        ForAll(
+            issuestatus,
+            Collect(
+                Data,
+                {
+                    Issue: Concatenate("'",Result,"'"),
+                    RepairCompletedCount: CountRows(
+                        Filter(
+                            'STAR Case Tracking',
+                            'Repair Status'.Value = "Repair Completed" && 'Issue Status'.Value=Result
+                        )
+                    ),
+                    RepairUnderwayCount: CountRows(
+                        Filter(
+                            'STAR Case Tracking',
+                            'Repair Status'.Value = "Repair Underway" && 'Issue Status'.Value=Result
+                        )
+                    ),
+                    RepairCompletedDTCCount: CountRows(
+                        Filter(
+                            'STAR Case Tracking',
+                            'Repair Status'.Value = "Repair Completed - DTC Active" && 'Issue Status'.Value=Result
+                        )
+                    ),
+                    DiagnosisUnderwayCount: CountRows(
+                        Filter(
+                            'STAR Case Tracking',
+                            'Repair Status'.Value = "Diagnosis Underway" && 'Issue Status'.Value=Result
+                        )
+                    ),
+                    PartEnrouteCount: CountRows(
+                        Filter(
+                            'STAR Case Tracking',
+                            'Repair Status'.Value = "Part Enroute to Dealer" && 'Issue Status'.Value=Result
+                        )
+                    )
+                }
+            )
+        )
+
